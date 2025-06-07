@@ -34,11 +34,11 @@ function MainMenu:load()
   self.text = "Main Menu"
 end
 
-function MainMenu:update()
+function MainMenu:update() -- Not required
 
 end
 
-function MainMenu:draw()
+function MainMenu:draw() -- Not required
   love.graphics.print(self.text, 100, 100)
 end
 
