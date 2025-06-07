@@ -48,7 +48,8 @@ return MainMenu
 **Loading Scenes**
 ```lua
 function love.load()
-  --scenemanager loads scenes based on their filename, e.g. A MainMenu scene should be called mainmenu.lua
+  -- scenemanager loads scenes based on their filename,
+     e.g. A MainMenu scene should be called mainmenu.lua
   scenemanager:loadScene("mainmenu")
 end
 ```
