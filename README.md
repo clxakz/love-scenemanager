@@ -28,7 +28,6 @@ end
 *A basic scene setup example*
 ```lua
 -- ./scenes/mainmenu.lua
-
 MainMenu = {}
 
 function MainMenu:load()
@@ -71,5 +70,38 @@ end
 -- game.lua
 function Game:load(text, score)
   print(text .. score) -- "love2d100"
+end
+```
+
+**SceneManager can pass key and mouse events by default**
+
+```lua
+-- main.lua
+function love.load()
+  local SceneManager = require("scenemanager")
+  scenemanager = SceneManager:new()
+end
+
+
+function love.keypressed(key)
+  scenemanager:keypressed(key)
+end
+
+
+function love.mousepressed(x, y, button)
+  scenemanager:mousepressed(key)
+end
+
+
+-- custom event
+function love.keyreleased(key)
+  if scenemanager.current_scene and type(scenemanager.current_scene.keyreleased) == "function" then
+    scenemanager.current_scene:keyreleased(key) 
+  end
+end
+
+-- game.lua
+function Game:keypressed(key)
+  print(key)
 end
 ```
